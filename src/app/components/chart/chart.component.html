@@ -1,0 +1,101 @@
+<div class="ui grid" style="margin-right: 5px">
+
+    <div class="twelve wide column">
+        <div class="ui segment">
+
+            <div class="ui three column grid">
+                <div class="column">
+                    <div class="ui card">
+                        <div class="extra content">
+                            Sales
+                        </div>
+                        <div class="content">
+                            <div class="header">£102.458</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui card">
+                        <div class="extra content">
+                            Spend
+                        </div>
+                        <div class="content">
+                            <div class="header">£3M</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui card">
+                        <div class="extra content">
+                            ROI
+                        </div>
+                        <div class="content">
+                            <div class="header"> 1.2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="three wide column">
+        <div class="ui segment">
+            <p>Select Plan </p>
+            <mat-checkbox>Plan 2019 High</mat-checkbox>
+            <mat-checkbox>Plan 2019 Low</mat-checkbox>
+            <button class="ui red basic button">
+                <i class="icon plus"></i>
+                Add Plan
+            </button>                   
+            
+        </div>
+    </div>
+
+    <div class="twelve wide column">
+
+        <div class="ui segment">
+            <app-chart1></app-chart1>
+        </div>
+
+    </div>
+    <div class="three wide column">
+            <div class="ui segment">               
+                <p> Select Date </p>
+                <p>
+                    <mat-form-field class="date-picker" floatLabel="never" placeholder="From Date">
+                        <input matInput disabled [ngModel]="startDateInit | date:'d-MMM-y'">
+                        <input matInput [hidden]='true' [(ngModel)]="startDateInit" [matDatepicker]="startDate"
+                            (ngModelChange)="updateStartDateRange($event)" [min]="startPlanDateMin">
+                        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                        <mat-datepicker #startDate></mat-datepicker>
+                    </mat-form-field>
+    
+                    <mat-form-field class="date-picker" floatLabel="never" placeholder="To Date">
+                        <input matInput disabled [ngModel]="endDateInit | date:'d-MMM-y'">
+                        <input matInput [hidden]='true' [(ngModel)]="endDateInit" [matDatepicker]="endDate"
+                            (ngModelChange)="updateEndDateRange($event)" [min]="endPlanDateMin">
+                        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                        <mat-datepicker #endDate></mat-datepicker>
+                    </mat-form-field>
+    
+                </p>
+                <p> Select KPI</p>
+                <p>
+                    <mat-slide-toggle [checked]="true">Sales</mat-slide-toggle>
+                </p>
+                <p>
+                    <mat-slide-toggle>Traffic</mat-slide-toggle>
+                </p>
+    
+                <br>
+                <button class="ui primary basic button">
+                    <i class="undo icon"></i>
+                    Apply
+                </button>
+            </div>
+        </div>
+
+</div>

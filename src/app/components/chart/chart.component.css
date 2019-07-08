@@ -1,0 +1,14 @@
+.example-container {
+    width: 700px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+
+  .mat-select, .date-picker{
+    font-size: 12px;
+    width: 50%;
+  }
+  

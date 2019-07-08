@@ -1,0 +1,111 @@
+<div class="ui grid">
+    <div class="nine wide column">
+        <div class="ui clearing segment">   
+                <br><br><br>        
+            <div class="example-container">
+                <h4>Asset CTA</h4>
+                <div class="ui top right attached label">{{entryCount==0? 'No' : entryCount}}
+                    {{entryCount==1? 'Entry' :'Entries'}}</div>
+
+                <mat-chip-list aria-label="selection" class="example-chip-list">
+                    Category 1
+                    <div cdkDropList #categoryList1="cdkDropList" [cdkDropListData]="category1"
+                        [cdkDropListConnectedTo]="[categoryList2]" class="example-list"
+                        (cdkDropListDropped)="drop($event)">
+                        <div>
+                            <mat-chip *ngFor="let item of category1" [removable]="removable" (removed)="remove(item)"
+                                cdkDrag>
+                                {{item?.name}}
+                                <mat-icon matChipRemove *ngIf="true" (click)="removeCategory1(item)">cancel</mat-icon>
+                            </mat-chip>
+                            {{item?.name}}
+                        </div>
+                    </div>
+                </mat-chip-list>
+                <br>
+                <mat-chip-list aria-label="selection" class="example-chip-list">
+                    Category 2
+                    <div cdkDropList #categoryList2="cdkDropList" [cdkDropListData]="category2"
+                        [cdkDropListConnectedTo]="[categoryList1]" class="example-list"
+                        (cdkDropListDropped)="drop($event)">
+                        <div>
+                            <mat-chip *ngFor="let item of category2" [color]="item?.color" [removable]="removable" (removed)="remove(item)"
+                                cdkDrag>
+                                {{item?.name}}
+                                <mat-icon matChipRemove *ngIf="true" (click)="removeCategory2(item)">cancel</mat-icon>
+                            </mat-chip>
+                            {{item?.name}}
+                        </div>
+                    </div>
+                </mat-chip-list>
+            </div>
+        </div>
+    </div>
+    <div class="five wide column">
+        <div class="ui segment">
+            <h4 class="ui header">Control Panel</h4>
+
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Help
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    Drag & drop tags below to assets, or select tags and use buttons to add or to remove multiple assets
+                    to/from assets
+                </mat-expansion-panel>
+            </mat-accordion>
+            <br>
+            <div>
+                <button class="ui primary basic button" (click)="addToSelectedCategories()"><i class="icon plus circle"></i>Add to selected
+                    categories</button>
+                <button class="ui negative basic button" (click)="removeFromSelectedCategories()"><i class="icon minus circle"></i>Remove from selected
+                    categories</button>
+                <button class="ui primary basic button" (click)="addToAllCategories()"><i class="icon plus square"></i>Add to all categories</button>
+                <button class="ui negative basic button" (click)="removeFromAllCategories()"><i class="icon minus square"></i>Remove from all
+                    categories</button>
+            </div>
+            <mat-divider></mat-divider><br>
+
+
+            <div class="example-container">
+                <h4>Activity Themes</h4>
+                <mat-chip-list aria-label="selection" class="example-chip-list" [selectable]="true" [multiple]="true" >
+                    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+                        [cdkDropListConnectedTo]="[categoryList1,categoryList2]" class="example-list"
+                        (cdkDropListDropped)="drop($event)">
+                        <div>
+                            <mat-chip *ngFor="let item of done" [selectable]="true" [selected]="item.selected" (click)="selectChip(item)" [removable]="removable" (removed)="remove(item)"
+                                cdkDrag>
+                                {{item?.name}}
+                            </mat-chip>
+                            {{item?.name}}
+                        </div>
+                    </div>
+                </mat-chip-list>
+                <br>
+                <h4>Origin</h4>
+                <mat-chip-list aria-label="selection" class="example-chip-list" [selectable]="true" [multiple]="true" >
+                    <div cdkDropList #originList="cdkDropList" [cdkDropListData]="origin"
+                        [cdkDropListConnectedTo]="[categoryList1,categoryList2]" class="example-list"
+                        (cdkDropListDropped)="drop($event)">
+                        <div>
+                            <mat-chip *ngFor="let item of origin" 
+                            [color]="item?.color"
+                            [selectable]="true" [selected]="item.selected" 
+                            (click)="selectChip(item)" [removable]="removable" (removed)="remove(item)"
+                                cdkDrag>
+                                {{item?.name}}                         
+                            </mat-chip>
+                            {{item?.name}}
+                        </div>
+                    </div>
+                </mat-chip-list>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
