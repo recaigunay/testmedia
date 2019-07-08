@@ -1,6 +1,6 @@
 {
   "name": "test",
-  "version": "0.0.0",
+  "version": "10.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.800.0",
-    "@angular/cli": "^8.0.6",
+    "@angular/cli": "^8.1.0",
     "@angular/compiler-cli": "~8.0.0",
     "@angular/language-service": "~8.0.0",
     "@types/echarts": "^4.1.9",
